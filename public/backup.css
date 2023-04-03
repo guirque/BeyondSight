@@ -1,0 +1,181 @@
+/*General ---------------------------------------------*/
+
+body
+{
+    background-image: radial-gradient( rgb(18, 182, 18), rgb(32, 95, 32));
+    background-attachment: fixed;
+}
+
+/*Starting Menu --------------------------------------*/
+#startingMenu
+{
+    text-align: center;
+    color: white;
+    font-weight:100;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    margin: auto;
+    margin-top: 25vh;
+}
+
+#findRoomButton
+{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 2.5vh;
+    font-weight:700;
+    padding: 1vh 2.5vh 1vh 2.5vh;
+    border: rgb(61, 52, 17) thick groove;
+}
+
+@keyframes findRoomButtonAnim
+{
+    100%
+    {
+      transform: scale(1.1);  
+    }
+}
+
+#findRoomButton:hover
+{
+    animation: forwards 250ms findRoomButtonAnim;
+}
+
+/*Room -----------------------------------------------*/
+
+/*Actual Room*/
+/*
+    space: 2.5vh
+    msg: 80vw 10vh
+    space: 2.5vh
+    player: 15vh
+    table: fill space
+    player: 15vh
+*/
+#messages
+{
+    color: yellow;
+    animation: lookForNewRoomAnim 2s infinite;
+    font-size: 2.5vh;
+}
+#messagesDiv
+{
+    position: fixed;
+    display: flex;
+    text-align: center;
+    margin: 30vh auto 0 30vw;
+    z-index: 1;
+}
+
+#room
+{
+    display: grid;
+    grid-template-areas: 
+    "opponent"
+    "table"
+    "table"
+    "you";
+    text-align: center;
+}
+#table
+{
+    width: 80vw;
+    height: 45vh;
+    border: rgb(131, 74, 9) groove 4px;
+    margin: auto;
+    background-image: radial-gradient(rgb(192, 77, 24), rgb(121, 52, 20));
+    transform:rotateX(20deg);
+    margin: 5vh auto 5vh auto;
+    padding-top: 10vh;
+}
+.player
+{
+    width: 80vw;
+    height: 15vh;
+    /*border:rgb(163, 92, 10) groove 2px;*/
+    border-radius: 10%;
+    background-color: rgba(165, 42, 42, 0.185);
+    margin: auto;
+}
+
+/*Cards*/
+.card
+{
+    height: 22vh;
+    width: auto;
+    margin: -4vh -2vw 0 0;
+    /*animation: cardSpawnAnim 250ms forwards;*/
+}
+@keyframes cardSpawnAnim {
+    0%{transform: scale(0);}
+}
+@keyframes cardSpinAnim {
+    0%{transform:rotateY(720);}
+    
+}
+
+/*.tableCard
+{
+
+}*/
+
+#yourStatus, #theirStatus
+{
+    border:rgb(163, 92, 10) groove 2px;
+    display: flex;
+    text-align: left;
+    flex-direction: column;
+    color: white;
+    padding: 2vw;
+    font-size: 2.5vh;
+}
+#yourSustanance, #theirSustanance
+{
+    border-bottom: 2px rgb(163, 92, 10) groove;
+}
+
+/*.yourCard, .theirCard
+{
+    //box-shadow: 0vw 0vw 1vw 1vw rgba(0, 0, 0, 0.432);
+}*/
+.yourCard:hover
+{
+    animation: 250ms hoverCardAnim forwards;
+}
+@keyframes hoverCardAnim
+{
+    100%
+    {
+        transform: scale(1.1);
+    }
+}
+
+#you, #opponent
+{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+}
+#yourCards, #theirCards
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+.statusElement
+{
+    padding: 10px;
+    background-color:rgba(163, 127, 10, 0.212);
+}
+
+/*Busy Screen*/
+#lookForNewRoom
+{
+    color: yellow; 
+    text-decoration: underline;
+    animation: 1s lookForNewRoomAnim;
+}
+@keyframes lookForNewRoomAnim
+{
+    25%{margin-left: -4vw;}
+    50%{margin-left: 4vw;}
+    100%{margin-left: 0;}
+}

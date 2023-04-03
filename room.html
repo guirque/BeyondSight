@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Room </title>
+        <link rel="stylesheet" href="/style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+        <!-- Importing Fonts -->
+        <link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat&family=Special+Elite&display=swap" rel="stylesheet">
+
+    </head>
+    <body onpagehide="requestToServer(`/leave`, new requestDataObj('leave', {myID: thisPlayer, myRoom: roomNumber}))">
+        <a id="home" href="/" style="display: none;">Home</a>
+        <a href="/" id="results" style="display: none;">Game Over</a>
+        <div id="messagesDiv" >
+            <div id="messages">Waiting For An Opponent. <br/> Game Starting Soon...</div>
+        </div>
+        <main id="room">
+            <div class="player" id="opponent">
+                <div id="theirStatus">
+                    <div id="theirSustenance" class="statusElement">Total Sustenance: <div class="value">?</div></div>
+                    <div id="theirDamage" class="statusElement">Total Damage: <div class="value">?</div></div>
+                </div>
+                <div id="theirCards">
+                    <!-- <img src="/Images/Card_Back.png" class="theirCard card">-->
+                </div>
+            </div>
+            <div id="table">
+                <!--<img src="/Images/Card_Poison.png" class="tableCard card">-->
+            </div>
+
+            <div class="player" id="you">
+                <div id="yourStatus">
+                    <div id="yourSustenance" class="statusElement">Total Sustenance: <div class="value">?</div></div>
+                    <div id="yourDamage" class="statusElement">Total Damage: <div class="value">?</div></div>
+                </div>
+                <div id="yourCards">
+
+                    <!-- <img src="/Images/Card_Poison.png" class="yourCard card" onclick="cardClicked(this)"> -->
+                </div>
+            </div>
+        </main>
+        <script src="/roomScript.js"></script>
+    </body>
+</html>

@@ -1,0 +1,239 @@
+/*General Settings*/
+/*Animations*/
+@keyframes cardSpawnAnim {
+  0% {
+    transform: scale(0); } }
+
+@keyframes cardSpinAnim {
+  0% {
+    transform: rotateY(720); } }
+
+@keyframes cardEffectAnim {
+  100% {
+    box-shadow: none;
+    transform: scale(1.1); } }
+
+@keyframes cardLightAnim {
+  0% {
+    box-shadow: 10px 10px 5px rgba(128, 98, 0, 0.7); }
+  25% {
+    box-shadow: 10px 10px 5px rgba(0, 196, 0, 0.7); }
+  50% {
+    box-shadow: 10px 10px 5px rgba(255, 0, 0, 0.7); }
+  75% {
+    box-shadow: 10px 10px 5px rgba(0, 196, 0, 0.7); }
+  100% {
+    box-shadow: 10px 10px 5px rgba(128, 98, 0, 0.7);
+    z-index: 2;
+    transform: rotate(90deg); } }
+
+@keyframes movingMessageAnim {
+  25% {
+    margin-left: -4vw; }
+  50% {
+    margin-left: 4vw; }
+  100% {
+    margin-left: 0; } }
+
+@keyframes tableAnim {
+  0% {
+    background-color: #7e4118; }
+  50% {
+    background-color: #cca00f;
+    box-shadow: 8px 8px 5px rgba(0, 0, 0, 0.425); }
+  75% {
+    background-color: #7e4118; }
+  100% {
+    background-color: #7e4118; } }
+
+@keyframes backgroundAnim {
+  0% {
+    background-color: #abe442; }
+  50% {
+    background-color: black; }
+  75% {
+    background-color: ligthen(#f5e347, 60%); }
+  100% {
+    background-color: #abe442; } }
+
+/*Cards*/
+.card {
+  height: 17vh;
+  width: 9vw;
+  margin: -4vh -2vw 0 0;
+  /*animation: cardSpawnAnim 250ms forwards;*/ }
+  .card-img {
+    object-fit: contain;
+    box-shadow: 8px 8px 5px rgba(0, 0, 0, 0.3);
+    height: 17vh;
+    width: auto; }
+
+.tableCard {
+  display: flex;
+  justify-content: center;
+  margin-right: 4px; }
+  .tableCard-effectMsg {
+    font-family: 'Anton', 'Montserrat', 'Lucida Sans', Arial, sans-serif;
+    position: absolute;
+    top: 0px;
+    margin-bottom: -30vh;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 20%; }
+
+#yourCards, #theirCards {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap; }
+
+.yourCard {
+  display: flex;
+  justify-content: center;
+  transition: transform 200ms, box-shadow 200ms, background-color 3s; }
+  .yourCard-info {
+    transition: all 3s;
+    display: none;
+    position: absolute;
+    color: white; }
+  .yourCard:hover {
+    transform: scale(1.1);
+    box-shadow: none;
+    background-color: rgba(165, 42, 42, 0.9);
+    z-index: 1; }
+  .yourCard-cover {
+    position: absolute;
+    width: inherit;
+    height: inherit;
+    z-index: 5; }
+  .yourCard-cover:hover ~ .yourCard-info {
+    display: block; }
+
+.theirCard {
+  width: auto; }
+
+/*Busy Screen*/
+#lookForNewRoom {
+  color: yellow;
+  text-decoration: underline;
+  font-family: 'Special Elite', cursive;
+  animation: 1s movingMessageAnim; }
+
+/*Starting Menu --------------------------------------*/
+#startingMenu {
+  text-align: center;
+  color: white;
+  font-weight: 100;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  margin: auto;
+  margin-top: 25vh; }
+
+#findRoomButton {
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-size: 2.5vh;
+  font-weight: 700;
+  padding: 1vh 2.5vh 1vh 2.5vh;
+  border: #3d3411 thick groove; }
+  #findRoomButton:hover {
+    animation: forwards 250ms findRoomButtonAnim; }
+
+@keyframes findRoomButtonAnim {
+  100% {
+    transform: scale(1.1); } }
+
+/*General ---------------------------------------------*/
+* {
+  margin: 0;
+  padding: 0; }
+
+body {
+  background-image: radial-gradient(rgba(18, 182, 18, 0.65), rgba(32, 95, 32, 0.75));
+  background-color: #abe442;
+  background-attachment: fixed;
+  animation: backgroundAnim 20s infinite;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+
+/*Room -----------------------------------------------*/
+/*Actual Room*/
+/*
+    player: 15vh
+    space
+    table: fill space
+    space
+    player: 15vh
+*/
+#messages {
+  color: yellow;
+  text-decoration: underline;
+  font-family: 'Special Elite', cursive;
+  animation: 2s movingMessageAnim infinite;
+  color: yellow;
+  font-size: 2.5vh; }
+
+#messagesDiv {
+  position: fixed;
+  display: flex;
+  text-align: center;
+  z-index: 1; }
+
+#room {
+  display: grid;
+  grid-template-areas: "opponent" "table" "table" "you";
+  text-align: center; }
+
+#table {
+  width: 80vw;
+  height: 61vh;
+  border: #834a09 groove 4px;
+  margin: auto;
+  transform: rotateX(20deg);
+  margin: 2.5vh auto 2.5vh auto;
+  padding-top: 10vh;
+  box-sizing: border-box;
+  background-image: radial-gradient(rgba(192, 77, 24, 0.6), rgba(121, 52, 20, 0.9));
+  animation: tableAnim 20s infinite;
+  display: flex;
+  flex-direction: row;
+  justify-content: center; }
+
+.player {
+  width: 80vw;
+  height: 15vh;
+  /*border:rgb(163, 92, 10) groove 2px;*/
+  border-radius: 10%;
+  background-color: rgba(165, 42, 42, 0.185);
+  margin: auto;
+  box-sizing: border-box; }
+
+#yourStatus, #theirStatus {
+  border: #a35c0a groove 2px;
+  width: 100%;
+  display: flex;
+  text-align: left;
+  justify-content: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  color: white;
+  padding: 2.25vh;
+  font-size: 2.5vh;
+  background-color: rgba(163, 127, 10, 0.212); }
+
+#yourSustanance, #theirSustanance {
+  border-bottom: 2px #a35c0a groove; }
+
+#you, #opponent {
+  display: grid;
+  grid-template-columns: 1fr 2fr; }
+
+#opponent {
+  margin-top: 2vh; }
+
+#you {
+  margin-bottom: 2vh; }
+
+.statusElement {
+  padding: 1vh;
+  display: flex;
+  flex-direction: row; }

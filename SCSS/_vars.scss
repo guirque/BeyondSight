@@ -1,0 +1,18 @@
+//player
+//table
+//player
+
+$table-border: 0;
+$player-border: 0;
+$player-distance-margin: 2.5vh; //distance between player and table
+$status-border: 2px;
+$status-padding: 2.25vh; //2.25vh
+$status-element-padding: 1vh;
+
+$player-distance-edge: 2vh;
+$player-width: 80vw;
+$player-height: 15vh;
+$table-height: 100vh - $player-height * 2 - $player-distance-margin * 2 - $player-distance-edge * 2;
+$table-width: 80vw;
+
+$environment-time: 20s; //time for environment light animation

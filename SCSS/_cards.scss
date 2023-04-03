@@ -1,0 +1,91 @@
+/*Cards*/
+.card
+{
+    //height: 17vh;
+    //width: auto;
+
+    height: 17vh;
+    width: 9vw;
+    margin: -4vh -2vw 0 0;
+    /*animation: cardSpawnAnim 250ms forwards;*/
+
+    &-img
+    {
+        object-fit: contain;
+        box-shadow: 8px 8px 5px rgba(black, .3); //horizontal offset, vertical offset, blur, color
+        height: 17vh;
+        width: auto;
+    }
+}
+
+.tableCard
+{
+    display: flex;
+    justify-content: center;
+    //align-items: center;
+    margin-right: 4px;
+    //width:fit-content;
+
+    &-effectMsg
+    {
+        font-family: 'Anton', 'Montserrat', 'Lucida Sans', Arial, sans-serif;
+        position: absolute;
+        top: 0px;
+        margin-bottom: -30vh;
+        background-color: rgba(white, .3);
+        border-radius: 20%;
+        //width: 100%;
+       //height: 100%;
+    }
+}
+
+#yourCards, #theirCards
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.yourCard
+{
+    display: flex;
+    justify-content: center;
+    //flex-direction: column;
+    transition: transform 200ms, box-shadow 200ms, background-color 3s;
+
+    &-info
+    {
+        transition: all 3s;
+        display: none;
+        position: absolute;
+        color: white;
+
+    }
+
+    &:hover
+    {    
+        transform: scale(1.1); 
+        box-shadow: none;
+        background-color: rgba(brown, .9);
+        z-index: 1;
+    }
+
+    &-cover
+    {
+        position: absolute;
+        width: inherit;
+        height: inherit;
+        z-index: 5;
+    }
+
+    &-cover:hover ~ .yourCard-info
+    {
+        display: block;
+    }
+}
+
+.theirCard
+{
+    width: auto;
+}

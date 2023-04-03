@@ -1,0 +1,9 @@
+/*General Settings*/
+@mixin movingMessage($time: 1s, $infinite: false)
+{
+    color: yellow; 
+    text-decoration: underline;
+    font-family: 'Special Elite', cursive;
+    @if($infinite){animation: $time movingMessageAnim infinite;}
+    @else {animation: $time movingMessageAnim;}
+}

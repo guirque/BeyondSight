@@ -1,0 +1,32 @@
+/*Starting Menu --------------------------------------*/
+#startingMenu
+{
+    text-align: center;
+    color: white;
+    font-weight:100;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    margin: auto;
+    margin-top: 25vh;
+}
+
+#findRoomButton
+{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 2.5vh;
+    font-weight:700;
+    padding: 1vh 2.5vh 1vh 2.5vh;
+    border: rgb(61, 52, 17) thick groove;
+
+    &:hover
+    {
+        animation: forwards 250ms findRoomButtonAnim;
+    }
+}
+
+@keyframes findRoomButtonAnim
+{
+    100%
+    {
+      transform: scale(1.1);  
+    }
+}

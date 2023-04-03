@@ -1,0 +1,126 @@
+@import 'vars';
+@import 'general';
+@import 'animations';
+@import 'cards';
+@import 'busyRoom';
+@import 'startingScreen';
+
+/*General ---------------------------------------------*/
+
+*
+{
+    margin: 0;
+    padding: 0;
+}
+
+body
+{
+    background-image: radial-gradient( rgba(18, 182, 18, 0.65), rgba(32, 95, 32, 0.75));
+    background-color: rgb(171, 228, 66);
+    background-attachment: fixed;
+    animation: backgroundAnim $environment-time infinite;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/*Room -----------------------------------------------*/
+
+
+/*Actual Room*/
+/*
+    player: 15vh
+    space
+    table: fill space
+    space
+    player: 15vh
+*/
+#messages
+{
+    @include movingMessage(2s, true);
+    color: yellow;
+    font-size: 2.5vh;
+}
+#messagesDiv
+{
+    position: fixed;
+    display: flex;
+    text-align: center;
+    //margin: 30vh auto 0 30vw;
+    z-index: 1;
+}
+
+#room
+{
+    display: grid;
+    grid-template-areas: 
+    "opponent"
+    "table"
+    "table"
+    "you";
+    text-align: center;
+}
+#table
+{
+    width: $table-width;
+    height: $table-height;
+    border: rgb(131, 74, 9) groove 4px;
+    margin: auto;
+    transform:rotateX(20deg);
+    margin: $player-distance-margin auto $player-distance-margin auto;
+    padding-top: 10vh;
+    box-sizing: border-box;
+
+    background-image: radial-gradient(rgba(192, 77, 24, 0.6), rgba(121, 52, 20, 0.9));
+    animation: tableAnim $environment-time infinite;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.player
+{
+    width: $player-width;
+    height: $player-height;
+    /*border:rgb(163, 92, 10) groove 2px;*/
+    border-radius: 10%;
+    background-color: rgba(165, 42, 42, 0.185);
+    margin: auto;
+    box-sizing: border-box;
+}
+
+#yourStatus, #theirStatus
+{
+    border: rgb(163, 92, 10) groove $status-border;
+    width: 100%;
+    display: flex;
+    text-align: left;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    color: white;
+    padding: $status-padding;
+    font-size: 2.5vh;
+    background-color:rgba(163, 127, 10, 0.212);
+}
+#yourSustanance, #theirSustanance
+{
+    border-bottom: 2px rgb(163, 92, 10) groove;
+}
+
+#you, #opponent
+{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+}
+
+#opponent{margin-top: $player-distance-edge;}
+#you{margin-bottom: $player-distance-edge;}
+
+.statusElement
+{
+    padding: $status-element-padding;
+    display: flex;
+    flex-direction: row;
+}

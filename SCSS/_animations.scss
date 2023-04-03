@@ -1,0 +1,79 @@
+/*Animations*/
+@keyframes cardSpawnAnim {
+    0%{transform: scale(0);}
+}
+@keyframes cardSpinAnim {
+    0%{transform:rotateY(720);}
+    
+}
+
+$shadow: 10px 10px 5px;
+$mixed-shadow: $shadow rgba(mix(rgb(0, 196, 0), red), .7);
+$green-shadow: $shadow rgba(0, 196, 0, .7);
+$red-shadow: $shadow rgba(255, 0, 0, .7);
+@keyframes cardEffectAnim {
+    100%
+    {
+        box-shadow: none;
+        transform: scale(1.1);
+    }
+}
+@keyframes cardLightAnim {
+    0%{box-shadow: $mixed-shadow;}
+    25%{box-shadow: $green-shadow;}
+    50%{ box-shadow: $red-shadow}
+    75%{box-shadow: $green-shadow}
+    100%
+    {
+        box-shadow: $mixed-shadow;
+        z-index: 2;
+        transform: rotate(90deg);
+    }
+}
+@keyframes movingMessageAnim
+{
+    25%{margin-left: -4vw;}
+    50%{margin-left: 4vw;}
+    100%{margin-left: 0;}
+}
+
+@keyframes tableAnim
+{
+    0%
+    {
+        background-color: rgb(126, 65, 24);
+    }
+    50%
+    {
+        background-color: rgb(204, 160, 15);
+        box-shadow: 8px 8px 5px rgba(0, 0, 0, 0.425);
+    }
+    75%
+    {
+        background-color: rgb(126, 65, 24);
+    }
+    100%
+    {
+        background-color: rgb(126, 65, 24);
+    }
+}
+
+@keyframes backgroundAnim
+{
+    0%
+    {
+        background-color: rgb(171, 228, 66);
+    }
+    50%
+    {
+        background-color: darken(rgb(171, 228, 66), 90%);
+    }
+    75%
+    {
+        background-color: ligthen(rgb(245, 227, 71), 60%);
+    }
+    100%
+    {
+        background-color: rgb(171, 228, 66);
+    }
+}
